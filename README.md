@@ -59,3 +59,4 @@ pipenv run flask run
 - [ ] Create swagger doc and link on landing page.
 - [x] Use default branch.
 - [ ] Add heroku deploy button.
+- [ ] Add whitelist/blacklist for job names.
