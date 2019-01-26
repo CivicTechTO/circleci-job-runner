@@ -36,7 +36,7 @@ def run_job(job_name=None):
     branch = get_default_branch() if not BRANCH else BRANCH
     endpoint = 'https://circleci.com/api/v1.1/project/github/{}/tree/{}'.format(REPO, branch)
     r = requests.post(endpoint,
-                      auth=(CIRCLE_API_USER_TOKEN, ''),
+                      auth=(CIRCLE_API_TOKEN, ''),
                       json=payload)
 
     return r.text
