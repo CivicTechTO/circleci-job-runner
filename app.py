@@ -3,11 +3,14 @@ import os
 import requests
 
 
-CIRCLE_API_USER_TOKEN = os.environ.get('CIRCLE_API_USER_TOKEN')
-BRANCH = os.environ.get('GIT_BRANCH')
-REPO = os.environ.get('GITHUB_REPO')
+CIRCLE_API_TOKEN = os.environ.get('CIRCLE_API_USER_TOKEN', '')
+BRANCH = os.environ.get('GIT_BRANCH', '')
+REPO = os.environ.get('GITHUB_REPO', '')
 
 app = Flask(__name__)
+
+if not REPO or not CIRCLE_API_TOKEN:
+    raise 'Environment variables not set for GitHub repo and/or CircleCI API token. Exiting...'
 
 @app.route('/')
 def home():
