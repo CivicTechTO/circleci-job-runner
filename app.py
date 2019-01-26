@@ -20,13 +20,18 @@ def do_job_action(job_name=None):
     else:
         return 'Not found', 404
 
+def get_default_branch():
+    r = requests.get('https://api.github.com/repos/' + REPO)
+    return r.json()['default_branch']
+
 def run_job(job_name=None):
     payload = {
         'build_parameters': {
             'CIRCLE_JOB': job_name,
         },
     }
-    endpoint = 'https://circleci.com/api/v1.1/project/github/{}/tree/{}'.format(REPO, BRANCH)
+    branch = get_default_branch() if not BRANCH else BRANCH
+    endpoint = 'https://circleci.com/api/v1.1/project/github/{}/tree/{}'.format(REPO, branch)
     r = requests.post(endpoint,
                       auth=(CIRCLE_API_USER_TOKEN, ''),
                       json=payload)
