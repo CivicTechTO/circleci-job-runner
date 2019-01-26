@@ -60,3 +60,7 @@ pipenv run flask run
 - [x] Use default branch.
 - [ ] Add heroku deploy button.
 - [ ] Add whitelist/blacklist for job names.
+- [ ] Add tests.
+- [ ] Add auto-deploy to Heroku.
+- [ ] Add ability to set repo/branch in POST data.
+- [ ] Convert to a GitHub app.
