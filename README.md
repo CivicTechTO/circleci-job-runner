@@ -18,6 +18,10 @@ format:
 
 `https://myapp.herokuapp.com/jobs/my_job_name`
 
+You may fetch a list of options for runnable job names via:
+
+`https://myapp.herokuapp.com/jobs`
+
 The specific job name will depend how you've named them in your target
 repo's `.circleci/config.yml`.
 
@@ -35,6 +39,9 @@ GitHub](https://help.github.com/articles/setting-the-default-branch/).
   user with appropriate permissions on the repo. Having write access on
 the GitHub repo should give proper access. (Project tokens are
 read-only, and so won't work.)
+
+- `JOBS_BLACKLIST`. A comma-separated list of job names that shouldn't
+  be runnable via public API endpoint. (Optional. Default: `default`)
 
    [personal-token]: https://circleci.com/docs/2.0/managing-api-tokens/#creating-a-personal-api-token
 
